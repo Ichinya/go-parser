@@ -15,7 +15,7 @@ import (
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
-func ProcessMessage(body []byte, collection *mongo.Collection) error {
+func ProcessMessage(ctx context.Context, body []byte, collection *mongo.Collection) error {
 	var message struct {
 		URL string `json:"url"`
 	}
@@ -24,9 +24,6 @@ func ProcessMessage(body []byte, collection *mongo.Collection) error {
 		return err
 	}
 	utils.Logger.Printf("Обработка URL: %s\n", message.URL)
-
-	ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
-	defer cancel()
 
 	// Проверка наличия записи в MongoDB
 	var record models.MongoRecord

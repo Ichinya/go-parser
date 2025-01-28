@@ -1,4 +1,4 @@
-package handlers
+package integration
 
 import (
 	"context"
@@ -7,6 +7,7 @@ import (
 	"time"
 
 	"go_parser/internal/config"
+	"go_parser/internal/handlers"
 	"go_parser/internal/models"
 	"go_parser/internal/services"
 
@@ -16,7 +17,7 @@ import (
 
 func TestProcessMessage_AlreadyParsed(t *testing.T) {
 	// Загружаем конфигурацию
-	cfg := config.LoadConfigFromFile("../.env")
+	cfg := config.LoadConfigFromFile("../../.env")
 
 	// Подключение к MongoDB
 	var mongoClient *mongo.Client
@@ -45,7 +46,8 @@ func TestProcessMessage_AlreadyParsed(t *testing.T) {
 	}
 
 	// Обработка сообщения
-	err = ProcessMessage(testBody, collection)
+	ctx := context.Background()
+	err = handlers.ProcessMessage(ctx, testBody, collection)
 	if err != nil {
 		t.Fatalf("Ошибка обработки сообщения: %v", err)
 	}

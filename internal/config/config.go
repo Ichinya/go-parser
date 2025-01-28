@@ -32,7 +32,7 @@ func getProjectRoot() string {
 
 // LoadConfig загружает конфигурацию из файла .env в корне проекта.
 func LoadConfig() *Config {
-	return LoadConfigFromFile(filepath.Join(getProjectRoot(), ".env"))
+	return LoadConfigFromFile(filepath.Join(getProjectRoot(), "./../.env"))
 }
 
 // LoadConfigFromFile загружает конфигурацию из указанного файла .env.

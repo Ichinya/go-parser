@@ -105,7 +105,8 @@ func main() {
 			utils.Logger.Printf("Получено новое сообщение: %s\n", msg.Body)
 
 			// Обработка сообщения
-			err := handlers.ProcessMessage(msg.Body, mongoClient.Database(cfg.DatabaseName).Collection(cfg.CollectionName))
+			ctx := context.Background()
+			err := handlers.ProcessMessage(ctx, msg.Body, mongoClient.Database(cfg.DatabaseName).Collection(cfg.CollectionName))
 			if err != nil {
 				utils.Logger.Printf("Ошибка обработки сообщения: %v\n", err)
 				continue
