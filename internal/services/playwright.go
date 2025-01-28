@@ -1,8 +1,9 @@
 package services
 
 import (
+	"go_parser/internal/utils"
+
 	"github.com/playwright-community/playwright-go"
-	"go_parser/utils"
 )
 
 // FetchPageWithPlaywright открывает страницу через Playwright и возвращает её HTML-содержимое.

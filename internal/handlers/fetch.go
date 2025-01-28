@@ -3,14 +3,16 @@ package handlers
 import (
 	"context"
 	"encoding/json"
-	"go.mongodb.org/mongo-driver/mongo/options"
 	"time"
+
+	"go.mongodb.org/mongo-driver/mongo/options"
+
+	"go_parser/internal/models"
+	"go_parser/internal/services"
+	"go_parser/internal/utils"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
-	"go_parser/models"
-	"go_parser/services"
-	"go_parser/utils"
 )
 
 func ProcessMessage(body []byte, collection *mongo.Collection) error {

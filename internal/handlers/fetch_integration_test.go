@@ -6,9 +6,9 @@ import (
 	"testing"
 	"time"
 
-	"go_parser/config"
-	"go_parser/models"
-	"go_parser/services"
+	"go_parser/internal/config"
+	"go_parser/internal/models"
+	"go_parser/internal/services"
 
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"

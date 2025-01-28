@@ -6,10 +6,10 @@ import (
 	"os/signal"
 	"syscall"
 
-	"go_parser/config"
-	"go_parser/handlers"
-	"go_parser/services"
-	"go_parser/utils"
+	"go_parser/internal/config"
+	"go_parser/internal/handlers"
+	"go_parser/internal/services"
+	"go_parser/internal/utils"
 )
 
 func main() {
